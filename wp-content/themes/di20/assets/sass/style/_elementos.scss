@@ -49,17 +49,8 @@ h2 {
 h3 {
 	font-size: 1.312rem;
 	line-height: 1.312rem;
-	font-weight: $bold;
-	text-transform: uppercase;
-}
-
-h4 {
-	font-size: 1rem;
-	line-height: 1rem;
-	text-transform: uppercase;
-	font-weight: $bold;
-	border-bottom: 1px solid $bege;
-	color: $bege;
+	font-weight: $regular;
+	text-align: center;
 }
 
 h5 {
@@ -89,6 +80,30 @@ p {
 	@media all and (max-width: 770px){
 		font-size: 1.25rem;
 		line-height: (1.25rem)+.5;
+	}
+}
+
+a.button {
+	display: block;
+	width: auto;
+	height: 50px;
+	line-height: 50px;
+	color: #ffffff;
+	font-size: 1.25rem; 
+	text-align: center;
+	padding: 0 30px;
+	text-decoration: none;
+	@include animacao;
+
+	&.visualizar {
+		background-color: $amarelo;
+		position: absolute;
+		bottom: 50px;
+		right: 50px;
+
+		&:hover {
+			background-color: darken($amarelo, 10%);
+		}
 	}
 }
 

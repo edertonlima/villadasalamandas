@@ -3822,6 +3822,11 @@ body * {
 .box-content .content:after {
   clear: both;
 }
+/* line 122, ../sass/style/_estrutura.scss */
+.box-content .content.single p {
+  font-size: .875rem;
+  line-height: 1.275rem;
+}
 
 /* line 1, ../sass/style/_elementos.scss */
 strong {
@@ -3878,57 +3883,74 @@ h2 .cont-h2 .subtitulo {
 h3 {
   font-size: 1.312rem;
   line-height: 1.312rem;
-  font-weight: 600;
-  text-transform: uppercase;
+  font-weight: 400;
+  text-align: center;
 }
 
-/* line 56, ../sass/style/_elementos.scss */
-h4 {
-  font-size: 1rem;
-  line-height: 1rem;
-  text-transform: uppercase;
-  font-weight: 600;
-  border-bottom: 1px solid #E8B65A;
-  color: #E8B65A;
-}
-
-/* line 73, ../sass/style/_elementos.scss */
+/* line 64, ../sass/style/_elementos.scss */
 p {
   font-size: 1.125rem;
   line-height: 1.525rem;
   font-weight: 400;
   margin-bottom: 20px;
 }
-/* line 79, ../sass/style/_elementos.scss */
+/* line 70, ../sass/style/_elementos.scss */
 p:last-child {
   margin-bottom: 0px;
 }
-/* line 84, ../sass/style/_elementos.scss */
+/* line 75, ../sass/style/_elementos.scss */
 p.mini {
   font-size: 1rem;
   line-height: 1.25rem;
 }
 @media all and (max-width: 770px) {
-  /* line 73, ../sass/style/_elementos.scss */
+  /* line 64, ../sass/style/_elementos.scss */
   p {
     font-size: 1.25rem;
     line-height: 1.75rem;
   }
 }
 
-/* line 95, ../sass/style/_elementos.scss */
+/* line 86, ../sass/style/_elementos.scss */
+a.button {
+  display: block;
+  width: auto;
+  height: 50px;
+  line-height: 50px;
+  color: #ffffff;
+  font-size: 1.25rem;
+  text-align: center;
+  padding: 0 30px;
+  text-decoration: none;
+  -moz-transition: all 0.2s ease 0s;
+  -webkit-transition: all 0.2s ease 0s;
+  -o-transition: all 0.2s ease 0s;
+}
+/* line 98, ../sass/style/_elementos.scss */
+a.button.visualizar {
+  background-color: #E8B65A;
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+}
+/* line 104, ../sass/style/_elementos.scss */
+a.button.visualizar:hover {
+  background-color: #e2a22d;
+}
+
+/* line 110, ../sass/style/_elementos.scss */
 .justify-center {
   text-align: justify;
   /*-moz-text-align-last: center;
   text-align-last: center;*/
 }
 
-/* line 101, ../sass/style/_elementos.scss */
+/* line 116, ../sass/style/_elementos.scss */
 .center {
   text-align: center;
 }
 
-/* line 104, ../sass/style/_elementos.scss */
+/* line 119, ../sass/style/_elementos.scss */
 .no-margim {
   margin: 0 !important;
 }
@@ -4596,6 +4618,116 @@ label:hover:before {
 }
 
 /* line 16, ../sass/style/page/_casas.scss */
-.category .nav .casas a {
+.category .nav .casas a, .single-post .nav .casas a {
   color: #E8B65A;
+}
+
+/* line 23, ../sass/style/page/_casas.scss */
+.caracteristica {
+  border: 2px solid #8A949F;
+  border-width: 2px 0;
+  padding: 20px 40px;
+  margin-bottom: 60px;
+  text-align: center;
+  width: 100%;
+}
+/* line 31, ../sass/style/page/_casas.scss */
+.caracteristica .item {
+  display: inline-block;
+  padding-right: 80px;
+  line-height: 56px;
+  height: 56px;
+}
+/* line 37, ../sass/style/page/_casas.scss */
+.caracteristica .item img, .caracteristica .item span {
+  display: inline-block;
+}
+/* line 41, ../sass/style/page/_casas.scss */
+.caracteristica .item img {
+  margin-right: 30px;
+  vertical-align: top;
+}
+/* line 46, ../sass/style/page/_casas.scss */
+.caracteristica .item span {
+  font-size: 2rem;
+}
+/* line 50, ../sass/style/page/_casas.scss */
+.caracteristica .item:last-child {
+  padding-right: 0px;
+}
+
+/* line 56, ../sass/style/page/_casas.scss */
+.col-4:nth-child(3n+1) {
+  clear: both;
+}
+/* line 84, ../sass/style/_mixin.scss */
+.col-4:nth-child(3n+1):before, .col-4:nth-child(3n+1):after {
+  display: table;
+  content: '';
+}
+/* line 89, ../sass/style/_mixin.scss */
+.col-4:nth-child(3n+1):after {
+  clear: both;
+}
+
+/* line 60, ../sass/style/page/_casas.scss */
+.item-casa {
+  margin-bottom: 60px;
+}
+/* line 64, ../sass/style/page/_casas.scss */
+.item-casa .img-list img {
+  width: 100%;
+  border: 5px solid #ffffff;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -moz-transition: all 0.2s ease 0s;
+  -webkit-transition: all 0.2s ease 0s;
+  -o-transition: all 0.2s ease 0s;
+}
+/* line 72, ../sass/style/page/_casas.scss */
+.item-casa h3, .item-casa .caracteristica, .item-casa .excerpt {
+  padding: 0 20px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* line 77, ../sass/style/page/_casas.scss */
+.item-casa a {
+  text-decoration: none;
+}
+/* line 80, ../sass/style/page/_casas.scss */
+.item-casa a:hover {
+  color: #000000;
+}
+/* line 85, ../sass/style/page/_casas.scss */
+.item-casa h3 {
+  width: 100%;
+  margin: 10px 0;
+}
+/* line 90, ../sass/style/page/_casas.scss */
+.item-casa .caracteristica {
+  border: none;
+  padding: 0px;
+  margin-bottom: 5px;
+}
+/* line 95, ../sass/style/page/_casas.scss */
+.item-casa .caracteristica .item {
+  display: inline-block;
+  padding-right: 20px;
+  line-height: 40px;
+  height: 40px;
+}
+/* line 101, ../sass/style/page/_casas.scss */
+.item-casa .caracteristica .item img {
+  margin: 0;
+  height: 40px;
+}
+/* line 106, ../sass/style/page/_casas.scss */
+.item-casa .caracteristica .item span {
+  font-size: 1.5rem;
+}
+/* line 113, ../sass/style/page/_casas.scss */
+.item-casa:hover .img-list img {
+  border-color: #E8B65A;
 }

@@ -10,12 +10,108 @@
 	}
 }
 
-.category {
+.category, .single-post {
 	.nav {
 		.casas {
 			a {
 				color: $amarelo;
 			}
+		}
+	}
+}
+
+.caracteristica {
+	border: 2px solid $cinza;
+	border-width: 2px 0;
+	padding: 20px 40px;
+	margin-bottom: 60px;
+	text-align: center;
+	width: 100%;
+
+	.item {
+		display: inline-block;
+		padding-right: 80px;
+		line-height: 56px;
+		height: 56px;
+
+		img, span {
+			display: inline-block;
+		}
+
+		img {
+			margin-right: 30px;
+			vertical-align: top;
+		}
+
+		span {
+			font-size: 2rem;
+		}
+
+		&:last-child {
+			padding-right: 0px;
+		}
+	}
+}
+
+.col-4:nth-child(3n+1) {
+	@include clear;
+}
+
+.item-casa {
+	margin-bottom: 60px;
+
+	.img-list {
+		img {
+			width: 100%;
+			border: 5px solid #ffffff;
+			@include box-sizing;
+			@include animacao;
+		}
+	}
+
+	h3, .caracteristica, .excerpt {
+		padding: 0 20px;
+		@include box-sizing;
+	}
+
+	a {
+		text-decoration: none;
+
+		&:hover {
+			color: $cor-txt;
+		}
+	}
+
+	h3 {
+		width: 100%;
+		margin: 10px 0;
+	}
+
+	.caracteristica {
+		border: none;
+		padding: 0px;
+		margin-bottom: 5px;
+
+		.item {
+			display: inline-block;
+			padding-right: 20px;
+			line-height: 40px;
+			height: 40px;
+
+			img {
+				margin: 0;
+				height: 40px;
+			}
+
+			span {
+				font-size: 1.5rem;
+			}
+		}
+	}
+
+	&:hover {
+		.img-list img {
+			border-color: $amarelo;
 		}
 	}
 }

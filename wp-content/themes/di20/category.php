@@ -11,6 +11,31 @@
 			</div>
 		</h2>
 
+		<div class="content single">
+			<div class="row">
+				<?php
+					while ( have_posts() ) : the_post(); ?>
+
+						<div class="col-4">
+							<?php get_template_part( 'content-list' ); ?>
+						</div>	
+
+						<div class="col-4">
+							<?php get_template_part( 'content-list' ); ?>
+						</div>	
+
+						<div class="col-4">
+							<?php get_template_part( 'content-list' ); ?>
+						</div>	
+
+						<div class="col-4">
+							<?php get_template_part( 'content-list' ); ?>
+						</div>	
+					<?php endwhile;
+				?>
+			</div>
+		</div>
+
 	</div>
 </section>
 

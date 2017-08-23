@@ -117,5 +117,12 @@ body * {
 		overflow: hidden;
 		margin: 60px 0 0;
 		@include clear;
+
+		&.single {
+			p {
+				font-size: .875rem;
+				line-height: 1.275rem;
+			}
+		}
 	}
 }
