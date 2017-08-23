@@ -3,7 +3,7 @@
 <!-- slide -->
 <section class="box-content box-slide">
 	<div class="slide">
-		<div class="carousel slide" data-ride="carousel" data-interval="1000000" id="slide">
+		<div class="carousel slide" data-ride="carousel" data-interval="5000" id="slide">
 
 			<div class="carousel-inner" role="listbox">
 

@@ -95,7 +95,6 @@
 <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/assets/js/jquery.min.js"></script>
 <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/assets/js/bootstrap.min.js"></script>
 
-
 <script type="text/javascript">
 	jQuery.noConflict();
 

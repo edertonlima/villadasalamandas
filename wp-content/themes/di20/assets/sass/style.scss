@@ -1,5 +1,7 @@
 @import 'bootstrap.min.css';
 
+@import 'fancybox.css';
+
 @import 'style/_mixin';
 @import 'style/_reset';
 @import 'style/_variaveis';
@@ -15,4 +17,4 @@
 /* PAGES */
 @import 'style/page/_home';
 @import 'style/page/_quem-somos';
-@import 'style/page/_casas';
+@import 'style/page/_casas'; 

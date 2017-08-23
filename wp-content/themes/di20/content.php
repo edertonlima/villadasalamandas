@@ -1,7 +1,7 @@
 <!-- slide -->
 <section class="box-content box-slide">
 	<div class="slide">
-		<div class="carousel slide" data-ride="carousel" data-interval="1000000" id="slide">
+		<div class="carousel slide" data-ride="carousel" data-interval="5000" id="slide">
 
 			<div class="carousel-inner" role="listbox">
 
@@ -10,7 +10,10 @@
 					while ( have_rows('slide') ) : the_row();
 
 						if(get_sub_field('imagem')){
-							$slide = $slide+1; ?>
+							$slide = $slide+1; 
+							if($slide == 1){
+								$url_fancybox = get_sub_field('imagem');
+							} ?>
 
 							<div class="item <?php if($slide == 1){ echo 'active'; } ?>" style="background-image: url('<?php the_sub_field('imagem'); ?>');"></div>
 
@@ -29,7 +32,7 @@
 				
 			</ol>
 
-			<a href="javascript:" class="button visualizar" title="Visualizar Fotos">Visualizar Fotos</a>
+			<a href="<?php echo $url_fancybox; ?>" class="button visualizar fancybox" data-fancybox="galeria">Visualizar Fotos</a>
 
 		</div>
 
@@ -72,3 +75,24 @@
 
 	</div>
 </section>
+
+<?php if( have_rows('slide') ):
+	while ( have_rows('slide') ) : the_row();
+
+		if(get_sub_field('imagem')){ 
+			if(get_sub_field('imagem') != $url_fancybox) { ?>
+
+		 		<a href="<?php the_sub_field('imagem'); ?>" class="fancybox" data-fancybox="galeria" style="display: none;"><img src="<?php the_sub_field('imagem'); ?>" /></a>
+
+			<?php }
+		}
+
+	endwhile;
+endif; ?>
+
+<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/assets/js/fancybox/fancybox.js"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function() {		
+		jQuery('.fancybox').fancybox();	
+	});
+</script>
