@@ -1,0 +1,89 @@
+[
+    {
+        "key": "group_59851d51c8fae",
+        "title": "Detalhes da Casa",
+        "fields": [
+            {
+                "key": "field_59851f49854f2",
+                "label": "Adicionar Item",
+                "name": "iten_casa",
+                "type": "repeater",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "collapsed": "",
+                "min": 0,
+                "max": 0,
+                "layout": "table",
+                "button_label": "",
+                "sub_fields": [
+                    {
+                        "key": "field_59851f9b854f3",
+                        "label": "Ícone",
+                        "name": "icone",
+                        "type": "image",
+                        "instructions": "Tamanho do ícone:\r\n56px x 56px",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "30",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "url",
+                        "preview_size": "thumbnail",
+                        "library": "all",
+                        "min_width": 56,
+                        "min_height": 56,
+                        "min_size": "",
+                        "max_width": 56,
+                        "max_height": 56,
+                        "max_size": "",
+                        "mime_types": ""
+                    },
+                    {
+                        "key": "field_5985200a854f4",
+                        "label": "Título",
+                        "name": "titulo",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "70",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    }
+                ]
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "post"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": ""
+    }
+]

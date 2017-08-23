@@ -12,31 +12,31 @@
 			</h2>
 
 			<article class="content">
-				<form action="javascript:">
+				<form action="javascript:" id="form-contato">
 					<div class="row">
 						<div class="col-6">
 							<fieldset>
-								<input type="text" name="nome" id="nome" placeholder="Nome">
+								<input type="text" name="nome" id="nome" placeholder="*Nome">
 							</fieldset>
 
 							<fieldset>
-								<input type="text" name="email" id="email" placeholder="E-mail">
+								<input type="text" name="email" id="email" placeholder="*E-mail">
 							</fieldset>
 
 							<fieldset>
-								<input type="text" name="telefone" id="telefone" placeholder="Telefone">
+								<input type="text" name="telefone" id="telefone" placeholder="*Telefone">
 							</fieldset>
 						</div>
 
 						<div class="col-6">
 							<fieldset>
-								<textarea name="mensagem" id="mensagem">Mensagem</textarea>
+								<textarea name="mensagem" id="mensagem">*Mensagem</textarea>
 							</fieldset>
 						</div>
 
 						<div class="col-12">
 							<button type="button" class="enviar">Enviar mensagem</button>
-							<p class=""></p>
+							<p class="msg-form"></p>
 						</div>
 					</div>
 				
@@ -122,3 +122,37 @@
 
 </body>
 </html>
+
+<script type="text/javascript">
+	jQuery(document).ready(function(){	    
+		jQuery(".enviar").click(function(){
+			jQuery('.enviar').html('Enviando mensagem...').prop( "disabled", true );
+			jQuery('.msg-form').html('');
+			var nome = jQuery('#nome').val();
+			var email = jQuery('#email').val();
+			var telefone = jQuery('#telefone').val();
+			var mensagem = jQuery('#mensagem').val();
+			var para = '<?php the_field('email', 'option'); ?>';
+			var nome_site = '<?php the_field('titulo', 'option'); ?>';
+
+			if((nome!='') && (email!='') && (telefone!='')){
+				jQuery.getJSON("<?php echo get_template_directory_uri(); ?>/mail.php", { nome:nome, email:email, telefone:telefone, mensagem:mensagem, para:para, nome_site:nome_site }, function(result){		
+					if(result=='ok'){
+						resultado = 'Enviado com sucesso! Obrigado.';
+						classe = 'ok';
+					}else{
+						resultado = result;
+						classe = 'erro';
+					}
+					jQuery('.msg-form').addClass(classe).html(resultado);
+					jQuery('form#form-contato').trigger("reset");
+					jQuery('.enviar').html('Enviar mensagem').prop( "disabled", false );
+				});
+			}else{
+				jQuery('.msg-form').html('Por favor, todos os campos precisam ser preenchidos.');
+				jQuery('.enviar').html('Enviar mensagem').prop( "disabled", false );
+			}
+		});
+
+	});
+</script>

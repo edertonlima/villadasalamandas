@@ -71,6 +71,26 @@
 			</div>
 
 			<?php the_field('texto') ?>
+
+			<?php if( have_rows('iten_casa') ): ?>
+				<div class="itens">
+
+					<?php while ( have_rows('iten_casa') ) : the_row(); ?>
+
+						<div class="item">
+							<img src="<?php the_sub_field('icone'); ?>" alt="">
+							<span><?php the_sub_field('titulo'); ?></span>
+						</div>
+
+					<?php endwhile; ?>
+				</div>
+			<?php endif; ?>
+
+			
+				
+					
+				</div>
+			</div>
 		</article>
 
 	</div>
