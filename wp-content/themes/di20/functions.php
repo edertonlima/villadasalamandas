@@ -96,15 +96,6 @@ add_action( 'init', 'change_post_object' );
 
 /* PAGINAS CONFIGURAÇÕES */
 if( function_exists('acf_add_options_page') ) {
-
-	/*acf_add_options_page(array(
-		'page_title' 	=> 'Formulários',
-		'menu_title'	=> 'Formulários',
-		'menu_slug' 	=> 'formularios',
-		'capability'	=> 'edit_posts',
-		'redirect'		=> false,
-		'icon_url' 		=> 'dashicons-admin-comments'
-	));*/
 	
 	acf_add_options_page(array(
 		'page_title' 	=> 'Configurações',
@@ -147,164 +138,6 @@ function paginacao() {
         }
 }
 
-
-/* NOVOS POST TYPES *
-// PRODUTOS
-add_action( 'init', 'create_post_type_produto' );
-function create_post_type_produto() {
-
-	$labels = array(
-	    'name' => _x('Produtos', 'post type general name'),
-	    'singular_name' => _x('Produto', 'post type singular name'),
-	    'add_new' => _x('Adicionar novo', 'Produto'),
-	    'add_new_item' => __('Addicionar novo produto'),
-	    'edit_item' => __('Editar produto'),
-	    'new_item' => __('Novo produto'),
-	    'all_items' => __('Todos as produtos'),
-	    'view_item' => __('Visualizar produto'),
-	    'search_items' => __('Procurar produto'),
-	    'not_found' =>  __('Nenhum produto encontrado.'),
-	    'not_found_in_trash' => __('Nenhum produto encontrado na lixeira.'),
-	    'parent_item_colon' => '',
-	    'menu_name' => 'Produtos'
-	);
-	$args = array(
-	    'labels' => $labels,
-	    'public' => true,
-	    'publicly_queryable' => true,
-	    'show_ui' => true,
-	    'show_in_menu' => true,
-	    'rewrite' => true,
-	    'capability_type' => 'post',
-	    'has_archive' => true,
-	    'hierarchical' => false,
-	    'menu_position' => null,
-	    'menu_icon' => 'dashicons-tag',
-	    'supports' => array('title','thumbnail','excerpt')
-	  );
-
-    register_post_type( 'produtos', $args );
-}
-
-add_action( 'init', 'create_taxonomy_categoria_produto' );
-function create_taxonomy_categoria_produto() {
-
-	$labels = array(
-	    'name' => _x( 'Categoria', 'taxonomy general name' ),
-	    'singular_name' => _x( 'Categoria', 'taxonomy singular name' ),
-	    'search_items' =>  __( 'Procurar categoria' ),
-	    'all_items' => __( 'Todas as categorias' ),
-	    'parent_item' => __( 'Categoria pai' ),
-	    'parent_item_colon' => __( 'Categoria pai:' ),
-	    'edit_item' => __( 'Editar categoria' ),
-	    'update_item' => __( 'Atualizar categoria' ),
-	    'add_new_item' => __( 'Adicionar nova categoria' ),
-	    'new_item_name' => __( 'Nova categoria' ),
-	    'menu_name' => __( 'Categoria' ),
-	);
-
-    register_taxonomy( 'categoria_produto', array( 'produtos' ), array(
-        'hierarchical' => true,
-        'labels' => $labels,
-        'show_ui' => true,
-        'show_admin_column' => true,
-        'show_in_tag_cloud' => true,
-        'query_var' => true,
-		'has_archive' => 'produtos',
-		'rewrite' => array(
-		    'slug' => 'produtos',
-		    'with_front' => false,
-			),
-        )
-    );
-}
-
-function wpcodex_add_excerpt_support_for_pages() {
-	add_post_type_support( 'produtos', 'custom-fields' );
-}
-add_action( 'init', 'wpcodex_add_excerpt_support_for_pages' );
-
-/*
-
-
-
-
-
-	// matriz e filiais
-	add_action('init', 'type_post_matriz_filiais');
-	function type_post_matriz_filiais() {
-		$labels = array(
-			'name' => _x('Matriz e Filiais', 'post type general name'),
-			'singular_name' => _x('Matriz e Filiais', 'post type singular name'),
-			'add_new' => _x('Adicionar Novo', 'Novo item'),
-			'add_new_item' => __('Novo Item'),
-			'edit_item' => __('Editar Item'),
-			'new_item' => __('Novo Item'),
-			'view_item' => __('Ver Item'),
-			'search_items' => __('Procurar Itens'),
-			'not_found' => __('Nenhum registro encontrado'),
-			'not_found_in_trash' => __('Nenhum registro encontrado na lixeira'),
-			'parent_item_colon' => '',
-			'menu_name' => 'Matriz e Filiais'
-		);
-
-		$args = array(
-			'labels' => $labels,
-			'public' => true,
-			'public_queryable' => true,
-			'show_ui' => true,
-			'query_var' => true,
-			'rewrite' => true,
-			'capability_type' => 'post',
-			'has_archive' => true,
-			'hierarchical' => false,
-			'menu_icon' => 'dashicons-admin-multisite',
-			'supports' => array('title', 'thumbnail')
-		);
-
-		register_post_type( 'matriz_filiais' , $args );
-		flush_rewrite_rules();
-	}
-
-
-	// lojas
-	add_action('init', 'type_post_lojas');
-	function type_post_lojas() {
-		$labels = array(
-			'name' => _x('Lojas', 'post type general name'),
-			'singular_name' => _x('Lojas', 'post type singular name'),
-			'add_new' => _x('Adicionar Novo', 'Novo item'),
-			'add_new_item' => __('Novo Item'),
-			'edit_item' => __('Editar Item'),
-			'new_item' => __('Novo Item'),
-			'view_item' => __('Ver Item'),
-			'search_items' => __('Procurar Itens'),
-			'not_found' => __('Nenhum registro encontrado'),
-			'not_found_in_trash' => __('Nenhum registro encontrado na lixeira'),
-			'parent_item_colon' => '',
-			'menu_name' => 'Lojas'
-		);
-
-		$args = array(
-			'labels' => $labels,
-			'public' => true,
-			'public_queryable' => true,
-			'show_ui' => true,
-			'query_var' => true,
-			'rewrite' => true,
-			'capability_type' => 'post',
-			'has_archive' => true,
-			'hierarchical' => false,
-			'menu_icon' => 'dashicons-store',
-			'supports' => array('title')
-		);
-
-		register_post_type( 'lojas' , $args );
-		flush_rewrite_rules();
-	}
-
-*/
-
 $producao = false;
 if($producao){
 	add_action('admin_head', 'my_custom_fonts');
@@ -321,7 +154,8 @@ if($producao){
 		#commentsdiv, 
 		#toplevel_page_wpglobus_options, 
 		.taxonomy-category .form-field.term-parent-wrap, 
-		.wp-menu-separator 
+		.wp-menu-separator, 
+		#menu-posts li:last-child 
 		{
 			display: none!important;
 		} */
@@ -350,6 +184,7 @@ if($producao){
 				jQuery("#toplevel_page_wpglobus_options").remove();
 				jQuery("#commentstatusdiv").remove();
 				jQuery("#commentsdiv").remove();
+				jQuery("#menu-posts li:last-child").remove();
 
 				jQuery(".user-rich-editing-wrap").remove();
 				jQuery(".user-admin-color-wrap").remove();

@@ -81,6 +81,29 @@
 			</div>
 		</h2>
 
+		<article class="content single">
+			<div class="row">
+				<?php
+
+					query_posts(
+						array(
+							'posts_per_page' => 6,
+							'post_type' => 'post'
+						)
+					);
+
+					while ( have_posts() ) : the_post(); ?>
+
+						<div class="col-4">
+							<?php get_template_part( 'content-list' ); ?>
+						</div>	
+
+				<?php endwhile;				 
+					wp_reset_query();
+				?>
+			</div>
+		</article>
+ 
 	</div>
 </section>
 
