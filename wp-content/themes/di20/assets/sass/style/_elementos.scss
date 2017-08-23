@@ -1,0 +1,106 @@
+strong {
+	font-weight: $bold;
+}
+
+h1 {
+	max-width: $wLogo;
+	width: 100%;
+	float: left;
+	@include animacao();
+
+	a {
+		img {
+			width: 100%;
+		}
+	}
+}
+
+h2 {
+	width: 100%;
+	display: block;
+	overflow: hidden;
+
+	img {
+		float: left;
+		margin-right: 25px;
+	}
+
+	.cont-h2 {
+		float: left;
+
+		.titulo {
+			display: block;
+			font-size: 3rem;
+			line-height: 3rem;
+			font-weight: $bold;
+			margin-bottom: 10px;
+		}
+
+		.subtitulo {
+			display: block;
+			font-size: 2rem;
+			line-height: 2rem;
+			font-weight: $light;
+			font-style: italic;
+		}
+	}
+}
+
+h3 {
+	font-size: 1.312rem;
+	line-height: 1.312rem;
+	font-weight: $bold;
+	text-transform: uppercase;
+}
+
+h4 {
+	font-size: 1rem;
+	line-height: 1rem;
+	text-transform: uppercase;
+	font-weight: $bold;
+	border-bottom: 1px solid $bege;
+	color: $bege;
+}
+
+h5 {
+
+}
+
+h6 {
+
+}
+
+p {
+	font-size: $font-size;
+	line-height: $font-size+.4;
+	font-weight: $regular;
+	margin-bottom: 20px;
+
+	&:last-child {
+
+		margin-bottom: 0px;
+	}
+
+	&.mini {
+		font-size: 1rem;
+		line-height: 1.25rem;
+	}
+	
+	@media all and (max-width: 770px){
+		font-size: 1.25rem;
+		line-height: (1.25rem)+.5;
+	}
+}
+
+.justify-center {
+	text-align: justify;  
+	/*-moz-text-align-last: center;
+	text-align-last: center;*/
+}
+
+.center {
+	text-align: center;
+}
+.no-margim {
+	margin: 0!important;
+}

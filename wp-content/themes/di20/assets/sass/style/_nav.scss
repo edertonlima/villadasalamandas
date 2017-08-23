@@ -1,0 +1,205 @@
+.nav {
+	width: 100%;
+
+	ul {
+		@include box-sizing;
+
+		li {
+			display: inline-block;
+
+			a {
+				margin-left: -4px;
+				display: block;
+				font-size: 1.25rem;
+				color: $cor-txt;
+				font-weight: $regular;
+				padding: 0 15px;
+				text-transform: uppercase;
+				text-decoration: none;
+				@include animacao();
+			}
+
+			&.quem-somos {
+				a:hover {
+					color: $verde;
+				}
+			}
+
+			&.casas {
+				a:hover {
+					color: $amarelo;
+				}
+			}
+
+			&.contato {
+				a:hover {
+					color: $vermelho;
+				}
+			}
+		}
+	}
+
+	@media all and (max-width: 880px){
+		top: -100vh;
+		right: 0;
+		position: fixed;
+		width: 100%;
+		height: 80vh;
+		overflow-x: scroll;
+		background-color: rgba(#FFF1E2, .9);
+
+		ul {
+			padding: 40px 0;
+
+			li {
+				width: 100%;
+				display: block;
+				text-align: right;
+				padding-right: 100px;
+
+				a {
+					display: inline-block;
+					color: $vermelho;
+					line-height: normal;
+					height: auto;
+					padding: 5px 10px;
+					font-size: 1.5rem;
+
+					&:hover, &.active {
+						color: $dourado;
+						background-color: transparent;
+					}
+				}
+
+				&:hover, &.active {
+					> a {
+						background-color: transparent;
+					}
+				}
+
+				ul {
+					display: block;
+
+					&.submenu {
+						position: relative;
+						width: 100%;
+						left: 0;
+						top: 0px;
+						margin-left: 0px;
+						overflow-x: auto;
+						overflow-y: auto;
+						height: auto;
+						padding: 10px 40px 10px 0;
+
+						li {
+							padding: 0;
+
+							a {
+								display: inline-block;
+								line-height: normal;
+								height: auto;
+								padding: 5px 10px;
+							}
+						}
+
+						&:before {
+							display: none;
+						}
+					}
+
+					&.submenu-sub {
+						display: block;
+						margin-left: 0px;
+						padding: 5px 0px 10px 0;
+
+						a {
+							padding: 0 15px;
+							border-bottom: none;
+							font-size: .875rem;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	@media all and (max-width: 400px){
+		height: 85vh;
+	}
+}
+
+/* menu mobile */
+.menu-mobile {
+	display: none;
+	float: right;
+	width: 40px;
+	height: 30px;
+	margin-top: 16px;
+	margin-left: 20px;
+	text-decoration: none;
+	position: relative;
+	z-index: 99999;
+
+	@media all and (max-width: 880px) {
+		display: block;
+	}
+
+	span {
+		display: block;
+
+		em {
+			font-style: normal;
+			color: #ffffff;
+			font-size: 3rem;
+			line-height: 2rem;
+			display: block;
+			margin-top: -2px;
+			@include animacao();
+
+			&:hover {
+				color: $dourado;
+			}
+		}
+	}
+
+	&.active {
+		text-align: center;
+	}
+
+	&:not(.active){
+		span {
+			position: relative;
+
+			em {
+				display: none;
+			}
+
+			&:before, &:after {
+				content: '';
+				position: absolute;
+			}
+
+			&:before {
+				top: 11px;
+			}
+
+			&:after {
+				top: 22px;
+			}
+		}
+
+		span, span:before, span:after {
+			background-color: #ffffff;
+			height: 5px;
+			width: 40px;
+			@include animacao();
+		}
+
+		&:hover {
+
+			span, span:before, span:after {
+				background-color: $dourado;
+			}
+		}
+	}
+}

@@ -1,0 +1,47 @@
+.box-quem-somos {
+
+	.titulo {
+		color: $verde;
+	}
+
+	.bloco {
+		width: (100%)/3;
+		float: left;
+		padding: 0 40px 0;
+		border-right: 1px solid $azul;
+		@include box-sizing;
+
+		&:first-child {
+			padding-left: 0px;
+		}
+
+		&:last-child {
+			border: none;
+			padding-right: 0;
+		}
+
+		.titulo {
+			font-size: 1.5rem;
+			line-height: 1.5rem;
+			display: block;
+			margin-bottom: 10px;
+			font-weight: $bold;
+		}
+
+		.texto {
+			display: block;
+			font-size: 1rem;
+			line-height: 1.4rem;
+		}
+	}
+}
+
+.page-id-33 {
+	.nav {
+		.quem-somos {
+			a {
+				color: $verde;
+			}
+		}
+	}
+}

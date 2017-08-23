@@ -1,0 +1,78 @@
+.slide {
+	height: $hSlide;
+	
+	.item {
+		height: $hSlide;
+		background-position: center;
+		background-size: cover;
+		border-bottom: 5px solid $amarelo;
+	}
+
+	.controle-slide {
+		position: absolute;
+		top: 50%;
+		margin-top: -23px;
+		width: 100%;
+		z-index: 100;
+		display: none;
+
+		a {
+			height: 46px;
+			width: 25px;
+			position: relative;
+			z-index: 990;
+			@include animacao();
+
+			&:hover {
+				opacity: .5;
+			}
+
+			&.left {
+				left: 10%;
+				float: left;
+				background-image: url('../images/seta-slide-left.png');
+			}
+
+			&.right {
+				float: right;
+				right: 10%;
+				background-image: url('../images/seta-slide-right.png');
+			}
+
+			@media all and (max-width: 1300px){
+				&.left {
+					left: 5%;
+				}
+
+				&.right {
+					right: 5%;
+				}
+			}
+
+		}
+	}
+
+	.carousel-indicators {
+		position: absolute;
+		bottom: 10px;
+		left: 0;
+		width: 100%;
+		display: inline-block;
+		margin: 0;
+		display: none;
+
+		li {
+			width: 44px;
+			height: 53px;
+			display: inline-block;
+			margin: 0 5px;
+			border: none;
+			background: url('../images/slide_indicators-OFF.png') no-repeat;
+			@include animacao();
+
+			&.active {
+				background-image: url('../images/slide_indicators-ON.png');
+			}
+		}
+	}
+}

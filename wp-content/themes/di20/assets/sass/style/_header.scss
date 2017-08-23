@@ -1,0 +1,24 @@
+.header {
+	width: 100%;
+	border-bottom: 5px solid $amarelo;
+
+	.top-header {
+		height: 100px;
+		@include clear;
+
+	}
+
+	.top-menu {
+		height: 100px;
+		@include clear;
+
+		h1 {
+			margin-top: 17px;
+		}
+
+		.box-menu {
+			float: right;
+			margin-top: 40px;
+		}
+	}
+}
