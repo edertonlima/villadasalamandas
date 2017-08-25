@@ -51,6 +51,45 @@
 			padding-right: 0px;
 		}
 	}
+
+	@media all and (max-width: 1000px){
+		padding: 20px 0px;
+
+		.item {
+			padding-right: 40px;
+			line-height: 45px;
+			height: 45px;
+
+			img {
+				margin-right: 10px;
+				height: 45px;
+			}
+
+			span {
+				font-size: 1.5rem;
+			}
+		}
+	}
+
+	@media all and (max-width: 750px){
+		text-align: left;
+
+		.item {
+			padding: 0 0 0 50px;
+			margin-bottom: 10px;
+			display: block;
+
+			&:last-child {
+				margin-bottom: 0px;
+			}
+		}
+	}
+
+	@media all and (max-width: 500px){
+		.item {
+			padding-left: 20px;
+		}
+	}
 }
 
 .itens {
@@ -63,6 +102,7 @@
 	.item {
 		display: inline-block;
 		padding-right: 80px;
+		margin-bottom: 10px;
 		line-height: 56px;
 		height: 56px;
 
@@ -83,10 +123,44 @@
 			padding-right: 0px;
 		}
 	}
-}
 
-.col-4:nth-child(3n+1) {
-	@include clear;
+	@media all and (max-width: 1000px){
+		padding: 20px 0px;
+
+		.item {
+			padding-right: 40px;
+			line-height: 45px;
+			height: 45px;
+
+			img {
+				margin-right: 10px;
+				height: 45px;
+			}
+
+			span {
+				font-size: 1.5rem;
+			}
+		}
+	}
+
+	@media all and (max-width: 750px){
+		text-align: left;
+
+		.item {
+			padding: 0 0 0 50px;
+			display: block;
+
+			&:last-child {
+				margin-bottom: 0px;
+			}
+		}
+	}
+
+	@media all and (max-width: 500px){
+		.item {
+			padding-left: 20px;
+		}
+	}
 }
 
 .item-casa {
@@ -104,6 +178,11 @@
 	h3, .caracteristica, .excerpt {
 		padding: 0 20px;
 		@include box-sizing;
+	}
+
+	.excerpt {
+		height: 65px;
+		overflow: hidden;
 	}
 
 	a {
@@ -124,11 +203,20 @@
 		padding: 0px;
 		margin-bottom: 5px;
 
+		@media all and (max-width: 750px){
+			text-align: center;
+		}
+
 		.item {
 			display: inline-block;
 			padding-right: 20px;
 			line-height: 40px;
 			height: 40px;
+
+			@media all and (max-width: 400px){
+				padding: 0 10px;
+				margin-bottom: 5px;
+			}
 
 			img {
 				margin: 0;

@@ -23,13 +23,15 @@
 
 			</div>
 
-			<ol class="carousel-indicators">
-				
-				<?php for($i=0; $i<$slide; $i++){ ?>
-					<li data-target="#slide" data-slide-to="<?php echo $i; ?>" class="<?php if($i == 0){ echo 'active'; } ?>"></li>
-				<?php } ?>
-				
-			</ol>
+			<?php if($slide > 2){ ?>
+				<ol class="carousel-indicators">
+					
+					<?php for($i=0; $i<$slide; $i++){ ?>
+						<li data-target="#slide" data-slide-to="<?php echo $i; ?>" class="<?php if($i == 0){ echo 'active'; } ?>"></li>
+					<?php } ?>
+					
+				</ol>
+			<?php } ?>
 
 		</div>
 	</div>

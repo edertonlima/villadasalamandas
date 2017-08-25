@@ -73,11 +73,26 @@
 <section class="box-content box-casas">
 	<div class="container">
 
+		<?php
+			$idioma = qtrans_getLanguage();
+			if($idioma == 'br'){
+				$casas = 'NOSSAS CASAS';
+			}
+
+			if($idioma == 'es'){
+				$casas = 'NUESTRAS CASAS';
+			}
+
+			if($idioma == 'en'){
+				$casas = 'OUR HOUSES';
+			}
+		?>
+
 		<h2>
-			<img src="<?php echo get_template_directory_uri(); ?>/assets/images/ico_casas.png" alt="NOSSAS CASAS">
+			<img src="<?php echo get_template_directory_uri(); ?>/assets/images/ico_casas.png" alt="<?php echo $casas; ?>">
 			<div class="cont-h2">
-				<span class="titulo">NOSSAS CASAS</span>
-				<span class="subtitulo">Todas as casas possuem estrutura completa pra seu total conforto, conheça!</span>
+				<span class="titulo"><?php echo $casas; ?></span>
+				<span class="subtitulo"><?php the_field('subtitulo_casas', 'option'); ?></span>
 			</div>
 		</h2>
 
@@ -92,13 +107,11 @@
 						)
 					);
 
-					while ( have_posts() ) : the_post(); ?>
+					while ( have_posts() ) : the_post();
+					
+						get_template_part( 'content-list' );
 
-						<div class="col-4">
-							<?php get_template_part( 'content-list' ); ?>
-						</div>	
-
-				<?php endwhile;				 
+					endwhile;
 					wp_reset_query();
 				?>
 			</div>

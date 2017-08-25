@@ -7,15 +7,17 @@
 		li {
 			display: inline-block;
 
-			a {
-				margin-left: -4px;
+			a, span {
 				display: block;
 				font-size: 1.25rem;
 				color: $cor-txt;
 				font-weight: $regular;
 				padding: 0 15px;
 				text-transform: uppercase;
-				text-decoration: none;
+			}
+
+			a {
+				text-decoration: none;	
 				@include animacao();
 			}
 
@@ -36,6 +38,16 @@
 					color: $vermelho;
 				}
 			}
+
+			&.idioma {
+				a {
+					padding: 0 5px;
+
+					&:hover {
+						color: $verde-claro;
+					}
+				}
+			}
 		}
 	}
 
@@ -44,87 +56,43 @@
 		right: 0;
 		position: fixed;
 		width: 100%;
-		height: 80vh;
-		overflow-x: scroll;
-		background-color: rgba(#FFF1E2, .9);
+		height: 100vh;
+		background-color: rgba(#ffffff, .9);
+		z-index: 9999;
 
 		ul {
-			padding: 40px 0;
+			padding: 100px 100px 0px 0;
 
 			li {
 				width: 100%;
 				display: block;
 				text-align: right;
-				padding-right: 100px;
 
 				a {
 					display: inline-block;
-					color: $vermelho;
-					line-height: normal;
-					height: auto;
+					color: $cor-txt;
 					padding: 5px 10px;
-					font-size: 1.5rem;
 
 					&:hover, &.active {
-						color: $dourado;
-						background-color: transparent;
+						color: $amarelo;
 					}
 				}
 
-				&:hover, &.active {
-					> a {
-						background-color: transparent;
-					}
+				&.separador-idioma {
+					display: none;
 				}
 
-				ul {
-					display: block;
+				&.idioma {
+					float: right;
+					width: auto;
+					padding: 0;
 
-					&.submenu {
-						position: relative;
-						width: 100%;
-						left: 0;
-						top: 0px;
-						margin-left: 0px;
-						overflow-x: auto;
-						overflow-y: auto;
-						height: auto;
-						padding: 10px 40px 10px 0;
-
-						li {
-							padding: 0;
-
-							a {
-								display: inline-block;
-								line-height: normal;
-								height: auto;
-								padding: 5px 10px;
-							}
-						}
-
-						&:before {
-							display: none;
-						}
-					}
-
-					&.submenu-sub {
-						display: block;
-						margin-left: 0px;
-						padding: 5px 0px 10px 0;
-
-						a {
-							padding: 0 15px;
-							border-bottom: none;
-							font-size: .875rem;
-						}
+					a {
+						padding: 5px 10px;
 					}
 				}
 			}
 		}
-	}
-
-	@media all and (max-width: 400px){
-		height: 85vh;
 	}
 }
 
@@ -134,7 +102,7 @@
 	float: right;
 	width: 40px;
 	height: 30px;
-	margin-top: 16px;
+	margin-top: -2px;
 	margin-left: 20px;
 	text-decoration: none;
 	position: relative;
@@ -148,8 +116,9 @@
 		display: block;
 
 		em {
+			text-decoration: none;
 			font-style: normal;
-			color: #ffffff;
+			color: #000000;
 			font-size: 3rem;
 			line-height: 2rem;
 			display: block;
@@ -157,7 +126,7 @@
 			@include animacao();
 
 			&:hover {
-				color: $dourado;
+				color: $amarelo;
 			}
 		}
 	}
@@ -189,7 +158,7 @@
 		}
 
 		span, span:before, span:after {
-			background-color: #ffffff;
+			background-color: #000000;
 			height: 5px;
 			width: 40px;
 			@include animacao();
@@ -198,7 +167,7 @@
 		&:hover {
 
 			span, span:before, span:after {
-				background-color: $dourado;
+				background-color: $amarelo;
 			}
 		}
 	}

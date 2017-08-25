@@ -1,3 +1,27 @@
+<?php
+	$idioma = qtrans_getLanguage();
+	if($idioma == 'br'){
+		$visualizar = 'Visualizar Fotos';
+		$pessoa = 'Pessoa'; $pessoas = 'Pessoas';
+		$quarto = 'Quarto'; $quartos = 'Quartos';
+		$banheiro = 'Banheiro'; $banheiros = 'Banheiros';
+	}
+
+	if($idioma == 'es'){
+		$visualizar = 'Ver las fotos';
+		$pessoa = 'Pessoa'; $pessoas = 'personas';
+		$quarto = 'Habitación'; $quartos = 'Habitaciones';
+		$banheiro = 'Baño'; $banheiros = 'Baños';
+	}
+
+	if($idioma == 'en'){
+		$visualizar = 'View Photos';
+		$pessoa = 'Person'; $pessoas = 'People';
+		$quarto = 'bedroom'; $quartos = 'Rooms';
+		$banheiro = 'bathroom'; $banheiros = 'Bathrooms';
+	}
+?>
+
 <!-- slide -->
 <section class="box-content box-slide">
 	<div class="slide">
@@ -5,34 +29,13 @@
 
 			<div class="carousel-inner" role="listbox">
 
-				<?php if( have_rows('slide') ):
-					$slide = 0;
-					while ( have_rows('slide') ) : the_row();
-
-						if(get_sub_field('imagem')){
-							$slide = $slide+1; 
-							if($slide == 1){
-								$url_fancybox = get_sub_field('imagem');
-							} ?>
-
-							<div class="item <?php if($slide == 1){ echo 'active'; } ?>" style="background-image: url('<?php the_sub_field('imagem'); ?>');"></div>
-
-						<?php }
-
-					endwhile;
-				endif; ?>
+				<div class="item active" style="background-image: url('<?php the_field('capa_detalhe'); ?>');"></div>
 
 			</div>
 
-			<ol class="carousel-indicators">
-				
-				<?php for($i=0; $i<$slide; $i++){ ?>
-					<li data-target="#slide" data-slide-to="<?php echo $i; ?>" class="<?php if($i == 0){ echo 'active'; } ?>"></li>
-				<?php } ?>
-				
-			</ol>
-
-			<a href="<?php echo $url_fancybox; ?>" class="button visualizar fancybox" data-fancybox="galeria">Visualizar Fotos</a>
+			<?php if( have_rows('modal') ): ?>
+				<a href="javascript:" onclick="javascript: jQuery('.item-1').trigger('click');" class="button visualizar"><?php echo $visualizar; ?></a>
+			<?php endif; ?>
 
 		</div>
 
@@ -55,22 +58,22 @@
 				
 				<div class="item">
 					<img src="<?php echo get_template_directory_uri(); ?>/assets/images/ico_pessoas.png" alt="">
-					<span><?php the_field('pessoas'); ?> Pessoa<?php if(get_field('pessoas') > 1){ echo 's'; } ?></span>
+					<span><?php the_field('pessoas'); ?> <?php if(get_field('pessoas') > 1){ echo $pessoas; }else{ echo $pessoa; } ?></span>
 				</div>
 
 				<div class="item">
 					<img src="<?php echo get_template_directory_uri(); ?>/assets/images/ico_quartos.png" alt="">
-					<span><?php the_field('quartos'); ?> Quarto<?php if(get_field('quartos') > 1){ echo 's'; } ?></span>
+					<span><?php the_field('quartos'); ?> <?php if(get_field('pessoas') > 1){ echo $quartos; }else{ echo $quarto; } ?></span>
 				</div>
 
 				<div class="item">
 					<img src="<?php echo get_template_directory_uri(); ?>/assets/images/ico_banheiros.png" alt="">
-					<span><?php the_field('banheiros'); ?> Banheiro<?php if(get_field('banheiros') > 1){ echo 's'; } ?></span>
+					<span><?php the_field('banheiros'); ?> <?php if(get_field('pessoas') > 1){ echo $banheiros; }else{ echo $banheiro; } ?></span>
 				</div>
 
 			</div>
 
-			<?php the_field('texto') ?>
+			<?php the_field('texto'); ?>
 
 			<?php if( have_rows('iten_casa') ): ?>
 				<div class="itens">
@@ -86,27 +89,22 @@
 				</div>
 			<?php endif; ?>
 
-			
-				
-					
-				</div>
-			</div>
 		</article>
 
 	</div>
 </section>
 
-<?php if( have_rows('slide') ):
-	while ( have_rows('slide') ) : the_row();
+<?php if( have_rows('modal') ):
+	$item = 0;
+	while ( have_rows('modal') ) : the_row();
 
-		if(get_sub_field('imagem')){ 
-			if(get_sub_field('imagem') != $url_fancybox) { ?>
+		$item = $item+1;
+		if(get_sub_field('imagem')){ ?>
 
-		 		<a href="<?php the_sub_field('imagem'); ?>" class="fancybox" data-fancybox="galeria" style="display: none;"><img src="<?php the_sub_field('imagem'); ?>" /></a>
+		 	<a href="<?php the_sub_field('imagem'); ?>" class="fancybox <?php echo 'item-'.$item; ?>" data-fancybox="galeria" style="display: none;"><img src="<?php the_sub_field('imagem'); ?>" /></a>
 
-			<?php }
-		}
-
+		<?php }
+		
 	endwhile;
 endif; ?>
 

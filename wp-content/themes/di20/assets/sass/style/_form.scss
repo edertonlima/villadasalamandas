@@ -67,40 +67,104 @@ label:hover:before {
   border: 1px solid #4778d9!important;
 }
 
+.box-select {
+	border: 5px solid #ffffff;
+	margin-bottom: 50px;
+}
+
 .select {
-	overflow: hidden;
-	background-color: #e6e7e8;
-	line-height: 44px;
-	height: 40px;
-	padding: 0 0 0 10px;
-	margin-bottom: 20px;
+	line-height: 50px;
+	height: 50px;
+	padding: 0px;
 	display: block;
 	position: relative;
+	z-index: 999;
 	@include box-sizing();
 
-	select {
-		width: 88%;
-		padding-right: 135px;
-		background-color: transparent;
-		font-weight: $regular;
-		font-size: 1.125rem;
-		color: $roxo;
-		box-sizing: content-box;
-		position: relative;
-		z-index: 99;
+	&:before {
+		content: '\f0d7';
+		position: absolute;
+		left: 0px;
+		top: 1px;
+		font: normal normal normal 27px/1 FontAwesome;
+		color: $amarelo;
 		cursor: pointer;
+		height: 50px;
+		width: 50px;
+		line-height: 50px;
+		z-index: 5;
+		text-align: center;
 	}
 
-	&:after {
-		content: "\f107";
+	.icon_select {
 		position: absolute;
-		right: 13px;
-		top: 12px;
-		font: normal normal normal 46px/1 FontAwesome;
+		left: 0px;
+		top: 0px;
+		height: 50px;
+		width: 50px;
+		z-index: 10;
 		cursor: pointer;
-		height: 15px;
-		line-height: 15px;
-		z-index: 0;
+		border-right: 1px solid $amarelo;
+		@include animacao;
+
+		&:hover {
+			background-color: rgba($amarelo,0.1);
+		}
+	}
+
+	ul {
+		border-top: 1px solid $amarelo;
+		position: absolute;
+		width: 100%;
+		top: 0;
+		left: 0;
+		background-color: #ffffff;
+
+		li {
+			font-weight: $light;
+			padding-left: 70px;
+			color: $amarelo;
+			font-size: 1.2rem;
+			height: 50px;
+			line-height: 50px;
+			border: 2px solid $amarelo;
+			border-width: 0 1px 1px;			
+			display: none;
+			cursor: pointer;
+			@include animacao;
+
+			&.ativo, &.fixo {
+				font-weight: $bold;
+				cursor: auto;
+			}
+
+			&.fixo {
+				display: block;
+			}
+
+			&:hover{
+				background-color: rgba($amarelo,0.1);
+
+				&.ativo, &.fixo {
+					background-color: transparent;
+				}
+			}
+		}
+	}
+
+	&.open {
+		z-index: 9999;
+
+		&:before {
+			content: '\f0d8';
+			top: -1px;
+		}
+
+		ul {
+			li {
+				display: block;
+			}
+		}
 	}
 }
 

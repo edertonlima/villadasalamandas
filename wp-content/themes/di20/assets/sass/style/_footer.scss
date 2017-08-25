@@ -8,6 +8,21 @@
 			margin-top: 13px;
 		}
 	}
+
+	@media all and (max-width: 768px){
+		.col-6 {
+			width: 100%;
+			padding: 0;
+		}
+
+		form fieldset:last-child {
+			padding-bottom: 20px;
+		}
+
+		form button {
+			margin-top: 0px;
+		}
+	}
 }
 
 .box-localizacao {
@@ -25,6 +40,23 @@
 		width: 100%;
 		height: 220px;
 	}
+
+	@media all and (max-width: 768px){
+		.col-5, .col-7 {
+			width: 100%;
+			padding: 0;
+		}
+
+		.col-5 {
+			margin-bottom: 40px;
+		}
+	}
+
+	@media all and (max-width: 500px){
+		.col-5, .col-7 {
+			text-align: center;
+		}
+	}
 }
 
 
@@ -32,12 +64,17 @@
 	height: 80px;
 	background-color: $verde-claro;
 	width: 100%;
+	overflow: hidden;
 
 	.copy {
 		float: left;
 		color: #ffffff;
 		font-size: 1.4rem;
 		line-height: 80px;
+
+		@media all and (max-width: 950px){
+			font-size: 1.1rem;
+		}
 	}
 
 	.redes {
@@ -53,6 +90,14 @@
 				opacity: .5;
 			}
 		}
+
+		@media all and (max-width: 950px){
+			margin-top: 17px;
+
+			img {
+				max-width: 45px;
+			}
+		}
 	}
 
 	.di20 {
@@ -66,6 +111,40 @@
 
 		&:hover {
 			opacity: .5;
+		}
+	}
+
+	@media all and (max-width: 950px){
+		.col-5, .col-2 {
+			padding: 0;
+		}
+	}
+
+	@media all and (max-width: 765px){
+		height: auto;
+		text-align: center;
+		padding: 20px;
+
+		.copy { 
+			display: block;
+			width: 100%;
+			line-height: 2rem;
+		}
+
+		.redes {
+			margin-top: 10px;
+		}
+
+		.di20 {
+			float: none;
+
+			img {
+				top: 5px;
+			}
+		}
+
+		.col-5, .col-2 {
+			width: 100%;
 		}
 	}
 

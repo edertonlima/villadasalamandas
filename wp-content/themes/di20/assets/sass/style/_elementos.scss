@@ -19,14 +19,17 @@ h2 {
 	width: 100%;
 	display: block;
 	overflow: hidden;
+	position: relative;
 
 	img {
-		float: left;
-		margin-right: 25px;
+		position: absolute;
+		left: 0;
+		max-width: 90px;
 	}
 
 	.cont-h2 {
-		float: left;
+		display: block;
+		padding-left: 100px;
 
 		.titulo {
 			display: block;
@@ -41,6 +44,51 @@ h2 {
 			line-height: 2.3rem;
 			font-weight: $light;
 			font-style: italic;
+		}
+	}
+
+	@media all and (max-width: 1000px){
+		img {
+			width: 60px;
+		}
+
+		.cont-h2 {
+			padding-left: 70px;
+
+			.titulo {
+				font-size: 2.5rem;
+				line-height: 2.8rem;
+			}
+
+			.subtitulo {
+				font-size: 1.5rem;
+				line-height: 1.8rem;
+			}
+		}
+	}
+
+	@media all and (max-width: 500px){
+		text-align: center;
+		
+		img {
+			display: inline-block;
+			position: relative;
+			width: auto;
+			margin: 0;
+		}
+
+		.cont-h2 {
+			padding: 0;
+
+			.titulo {
+				font-size: 2.5rem;
+				line-height: 2.8rem;
+			}
+
+			.subtitulo {
+				font-size: 1.5rem;
+				line-height: 1.8rem;
+			}
 		}
 	}
 }
@@ -80,6 +128,10 @@ p {
 		font-size: 1.25rem;
 		line-height: (1.25rem)+.5;
 	}
+}
+
+a:focus, a:hover {
+    text-decoration: none;
 }
 
 a.button {

@@ -105,11 +105,7 @@
 				jQuery('.nav').css('top','-100vh');
 				jQuery(this).removeClass('active');
 			}else{
-				if(jQuery(window).width() <= 400){
-					jQuery('.nav').css('top','100px');
-				}else{
-					jQuery('.nav').css('top','120px');
-				}
+				jQuery('.nav').css('top','0px');
 				jQuery(this).addClass('active');
 			}
 		});
@@ -150,17 +146,69 @@
 
 					<nav class="nav">
 						<ul class="menu-principal">
+
+							<?php
+								$idioma = qtrans_getLanguage();
+								if($idioma == 'br'){
+									$quem_somos = 'QUEM SOMOS';
+									$casas = 'NOSSAS CASAS';
+									$contato = 'CONTATO';
+								}
+
+								if($idioma == 'es'){
+									$quem_somos = 'QUIENES SOMOS';
+									$casas = 'NUESTRAS CASAS';
+									$contato = 'CONTACTO';
+								}
+
+								if($idioma == 'en'){
+									$quem_somos = 'WHO WE ARE';
+									$casas = 'OUR HOUSES';
+									$contato = 'CONTACT';
+								}
+							?>
+							
 							<li class="quem-somos">
-								<a href="<?php echo get_permalink(get_page_by_path('quem-somos')); ?>" title="QUEM SOMOS">QUEM SOMOS</a>
+								<a href="<?php echo get_permalink(get_page_by_path('quem-somos')); ?>" title="<?php echo $quem_somos; ?>"><?php echo $quem_somos; ?></a>
 							</li>
 
 							<li class="casas">
-								<a href="<?php echo get_home_url(); ?>/casas" title="NOSSAS CASAS" class="">NOSSAS CASAS</a>
+								<a href="<?php echo get_home_url(); ?>/casas" title="<?php echo $casas; ?>"><?php echo $casas; ?></a>
 							</li>
 
 							<li class="contato">
-								<a href="<?php echo get_permalink(get_page_by_path('contato')); ?>" title="CONTATO">CONTATO</a>
+								<a href="<?php echo get_permalink(get_page_by_path('contato')); ?>" title="<?php echo $contato; ?>"><?php echo $contato; ?></a>
 							</li>
+
+							<li class="separador-idioma"><span>|</span></li>
+
+							<?php 
+								global $wp;
+								$current_url = home_url(add_query_arg(array(),$wp->request));
+								if($idioma == 'br'){
+									$url = explode(get_site_url(),$current_url);
+								}else{
+									$url = explode($idioma,$current_url);
+								}
+							?>
+
+							<?php if(qtrans_getLanguage() != 'br'){ ?>
+								<li class="idioma">
+									<a href="<?php echo get_site_url().'/br'.$url[1]; ?>" title="BR">BR</a>
+								</li>
+							<?php } ?>
+
+							<?php if(qtrans_getLanguage() != 'en'){ ?>
+								<li class="idioma">
+									<a href="<?php echo get_site_url().'/en'.$url[1]; ?>" title="EN">EN</a>
+								</li>
+							<?php } ?>
+
+							<?php if(qtrans_getLanguage() != 'es'){ ?>
+								<li class="idioma">
+									<a href="<?php echo get_site_url().'/es'.$url[1]; ?>" title="ES">ES</a>
+								</li>
+							<?php } ?>
 						</ul>
 					</nav>
 

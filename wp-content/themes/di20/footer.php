@@ -15,27 +15,58 @@
 				<form action="javascript:" id="form-contato">
 					<div class="row">
 						<div class="col-6">
+
+							<?php
+								$idioma = qtrans_getLanguage();
+								if($idioma == 'br'){
+									$nome = 'Nome';
+									$email = 'E-mail';
+									$telefone = 'Telefone';
+									$mensagem = 'Mensagem';
+									$button = 'Enviar mensagem';
+									$button_on = 'Enviando mensagem...';
+								}
+
+								if($idioma == 'es'){
+									$nome = 'Nombre';
+									$email = 'E-mail';
+									$telefone = 'Teléfono';
+									$mensagem = 'Mensaje';
+									$button = 'Enviar mensaje';
+									$button_on = 'Enviando mensaje ...';
+								}
+
+								if($idioma == 'en'){
+									$nome = 'Name';
+									$email = 'Email';
+									$telefone = 'Phone';
+									$mensagem = 'Message';
+									$button = 'Send message';
+									$button_on = 'Sending message ...';
+								}
+							?>
+
 							<fieldset>
-								<input type="text" name="nome" id="nome" placeholder="*Nome">
+								<input type="text" name="nome" id="nome" placeholder="*<?php echo $nome; ?>">
 							</fieldset>
 
 							<fieldset>
-								<input type="text" name="email" id="email" placeholder="*E-mail">
+								<input type="text" name="email" id="email" placeholder="*<?php echo $email; ?>">
 							</fieldset>
 
 							<fieldset>
-								<input type="text" name="telefone" id="telefone" placeholder="*Telefone">
+								<input type="text" name="telefone" id="telefone" placeholder="*<?php echo $telefone; ?>">
 							</fieldset>
 						</div>
 
 						<div class="col-6">
 							<fieldset>
-								<textarea name="mensagem" id="mensagem">*Mensagem</textarea>
+								<textarea name="mensagem" id="mensagem">*<?php echo $mensagem; ?></textarea>
 							</fieldset>
 						</div>
 
 						<div class="col-12">
-							<button type="button" class="enviar">Enviar mensagem</button>
+							<button type="button" class="enviar"><?php echo $button; ?></button>
 							<p class="msg-form"></p>
 						</div>
 					</div>
@@ -65,7 +96,7 @@
 					<div class="col-5">
 						<p><?php the_field('endereco','option'); ?></p>
 
-						<p>Telefone:</p>
+						<p><?php echo $telefone; ?>:</p>
 						<p>
 							<?php the_field('telefone_1','option'); ?>
 
@@ -95,11 +126,11 @@
 		<div class="container">
 			<div class="row">
 
-				<div class="col-4">
+				<div class="col-5">
 					<div class="copy">Copyright © Villa das Alamandas <?php echo date('Y'); ?></div>
 				</div>
 
-				<div class="col-4">
+				<div class="col-2">
 					<?php if( have_rows('redes_sociais','option') ): ?>
 						<div class="redes">						
 							<?php while ( have_rows('redes_sociais','option') ) : the_row(); ?>
@@ -112,7 +143,7 @@
 					<?php endif; ?>
 				</div>
 
-				<div class="col-4">
+				<div class="col-5">
 					<a href="http://www.di20.com.br" class="di20" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo_di20.png" alt="di20 DESENV." /></a>
 				</div>
 				
@@ -126,7 +157,7 @@
 <script type="text/javascript">
 	jQuery(document).ready(function(){	    
 		jQuery(".enviar").click(function(){
-			jQuery('.enviar').html('Enviando mensagem...').prop( "disabled", true );
+			jQuery('.enviar').html('<?php echo $button_on; ?>').prop( "disabled", true );
 			jQuery('.msg-form').html('');
 			var nome = jQuery('#nome').val();
 			var email = jQuery('#email').val();
@@ -146,11 +177,11 @@
 					}
 					jQuery('.msg-form').addClass(classe).html(resultado);
 					jQuery('form#form-contato').trigger("reset");
-					jQuery('.enviar').html('Enviar mensagem').prop( "disabled", false );
+					jQuery('.enviar').html('<?php echo $button; ?>').prop( "disabled", false );
 				});
 			}else{
 				jQuery('.msg-form').html('Por favor, todos os campos precisam ser preenchidos.');
-				jQuery('.enviar').html('Enviar mensagem').prop( "disabled", false );
+				jQuery('.enviar').html('<?php echo $button; ?>').prop( "disabled", false );
 			}
 		});
 

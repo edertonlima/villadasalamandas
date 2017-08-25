@@ -4,10 +4,10 @@
  * @subpackage My Web
  * @since My web Site 1.0
  **
- */
+ */							
 
 /* HABILITAR / DESABILITAR */
-add_theme_support( 'post-thumbnails' );
+//add_theme_support( 'post-thumbnails' );
 
 // Unable admin bar
 add_filter('show_admin_bar', '__return_false');
@@ -19,6 +19,7 @@ function my_custom_init() {
 	remove_post_type_support( 'post', 'editor' );
 	remove_post_type_support('page', 'editor');
 	remove_post_type_support( 'page', 'thumbnail' );
+	remove_post_type_support( 'post', 'thumbnail' );
 }
 
 // REMOVE PARENT PAGE

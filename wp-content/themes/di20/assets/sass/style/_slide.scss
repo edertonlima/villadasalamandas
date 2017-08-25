@@ -54,24 +54,23 @@
 
 	.carousel-indicators {
 		position: absolute;
-		bottom: 10px;
+		bottom: 20px;
 		left: 0;
 		width: 100%;
 		display: inline-block;
 		margin: 0;
-		display: none;
 
 		li {
-			width: 44px;
-			height: 53px;
+			width: 15px;
+			height: 15px;
 			display: inline-block;
 			margin: 0 5px;
 			border: none;
-			background: url('../images/slide_indicators-OFF.png') no-repeat;
+			background-color: #ffffff;
 			@include animacao();
 
 			&.active {
-				background-image: url('../images/slide_indicators-ON.png');
+				background-color: $amarelo;
 			}
 		}
 	}
