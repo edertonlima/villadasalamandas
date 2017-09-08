@@ -102,7 +102,6 @@
 
 					query_posts(
 						array(
-							'posts_per_page' => 6,
 							'post_type' => 'post'
 						)
 					);
